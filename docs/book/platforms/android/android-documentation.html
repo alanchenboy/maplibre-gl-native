@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Introduction - MapLibre Native Developer Documentation</title>
+        <title>Documentation - MapLibre Native Developer Documentation</title>
 
 
         <!-- Custom HTML head -->
@@ -49,35 +49,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="diff.css">
+        <link rel="stylesheet" href="../../diff.css">
 
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "";
+            const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "../../searchindex.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="../../toc.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -144,7 +144,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
             </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -179,7 +179,7 @@
                     <h1 class="menu-title">MapLibre Native Developer Documentation</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
 
@@ -280,18 +280,43 @@
 }
 
 </style>
-<h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p><em><a href="https://github.com/maplibre/maplibre-native">MapLibre Native</a></em> is a community led fork of <em>Mapbox GL Native</em>. It's a C++ library that powers
-vector maps in native applications on multiple platforms by taking stylesheets that conform to the <em><a href="https://maplibre.org/maplibre-style-spec/">MapLibre Style Specification</a></em>, a fork of the
-Mapbox Style Spec. Since it is derived from Mapbox's original work it also uses <em>Mapbox Vector Tile Specification</em> as its choice of vector tile format.</p>
-<p>This documentation is intended for developers of MapLibre Native. If you are interested in <em>using</em> MapLibre Native, check out the <a href="https://github.com/maplibre/maplibre-native?tab=readme-ov-file#maplibre-native">main <code>README.md</code></a> on GitHub.</p>
+<h1 id="documentation-for-maplibre-android"><a class="header" href="#documentation-for-maplibre-android">Documentation for MapLibre Android</a></h1>
+<h2 id="api-documentation"><a class="header" href="#api-documentation">API Documentation</a></h2>
+<p>We use Dokka for the MapLibre Android API documentation. The live documentation site can be found <a href="https://maplibre.org/maplibre-native/android/api/">here</a>.</p>
+<h2 id="examples-documentation"><a class="header" href="#examples-documentation">Examples Documentation</a></h2>
+<p>The documentation site with examples uses MkDocs along with <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>. You can check out the site <a href="https://maplibre.org/maplibre-native/android/examples/">here</a>.</p>
+<h3 id="building"><a class="header" href="#building">Building</a></h3>
+<p>To build the Examples Documentation you need to have Docker installed.</p>
+<p>From <code>platform/android</code>, run:</p>
+<pre><code>make mkdocs
+</code></pre>
+<p>Next, visit <a href="http://localhost:8000/maplibre-native/android/examples/"><code>http://localhost:8000/maplibre-native/android/examples/</code></a>.</p>
+<h3 id="snippets"><a class="header" href="#snippets">Snippets</a></h3>
+<p>We use <a href="https://facelessuser.github.io/pymdown-extensions/extensions/snippets/#snippet-sections">a Markdown extension for snippets</a>. This way code can be referenced instead of copy pasted into the documentation. This avoids code examples from becoming out of date or failing to compile. The syntax is as follows:</p>
+<pre><code class="language-kotlin">// --8&lt;-- [start:fun]
+fun double(x: Int): Int {
+    return 2 * x
+}
+// --8&lt;-- [end:fun]
+</code></pre>
+<p>Next, you'll be able to reference that piece of code in Markdown like so:</p>
+<pre><code>--8&lt;-- "example.kt:fun"
+</code></pre>
+<p>Where <code>example.kt</code> is the path to the file.</p>
+<h3 id="static-assets"><a class="header" href="#static-assets">Static Assets</a></h3>
+<p>Static assets are ideally uploaded to the <a href="https://maplibre-native.s3.eu-central-1.amazonaws.com/index.html#android-documentation-resources/">MapLibre Native S3 Bucket</a>.</p>
+<p>Please open an issue with the ARN of your AWS account to get upload privileges.</p>
+<p>You can use the macro <code>{{ s3_url("filename.example") }}</code> which will use a CDN instead of linking to the S3 bucket directly.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../platforms/android/android-tests.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
-                            <a rel="next prefetch" href="platforms/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../platforms/android/benchmark.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -301,8 +326,11 @@ Mapbox Style Spec. Since it is derived from Mapbox's original work it also uses 
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../platforms/android/android-tests.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
-                    <a rel="next prefetch" href="platforms/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../platforms/android/benchmark.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -317,13 +345,13 @@ Mapbox Style Spec. Since it is derived from Mapbox's original work it also uses 
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
 
         <!-- Custom JS scripts -->
 

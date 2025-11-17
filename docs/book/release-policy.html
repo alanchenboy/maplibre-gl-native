@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Introduction - MapLibre Native Developer Documentation</title>
+        <title>Release Policy - MapLibre Native Developer Documentation</title>
 
 
         <!-- Custom HTML head -->
@@ -280,18 +280,41 @@
 }
 
 </style>
-<h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p><em><a href="https://github.com/maplibre/maplibre-native">MapLibre Native</a></em> is a community led fork of <em>Mapbox GL Native</em>. It's a C++ library that powers
-vector maps in native applications on multiple platforms by taking stylesheets that conform to the <em><a href="https://maplibre.org/maplibre-style-spec/">MapLibre Style Specification</a></em>, a fork of the
-Mapbox Style Spec. Since it is derived from Mapbox's original work it also uses <em>Mapbox Vector Tile Specification</em> as its choice of vector tile format.</p>
-<p>This documentation is intended for developers of MapLibre Native. If you are interested in <em>using</em> MapLibre Native, check out the <a href="https://github.com/maplibre/maplibre-native?tab=readme-ov-file#maplibre-native">main <code>README.md</code></a> on GitHub.</p>
+<h1 id="release-policy"><a class="header" href="#release-policy">Release Policy</a></h1>
+<div class="mdbook-alerts mdbook-alerts-note">
+<p class="mdbook-alerts-title">
+  <span class="mdbook-alerts-icon"></span>
+  note
+</p>
+<p>The following release policiy applies specifically to MapLibre <strong>Android</strong> and MapLibre <strong>iOS</strong>.</p>
+</div>
+<ul>
+<li>We use <a href="https://semver.org/">semantic versioning</a>. Breaking changes will always result in a major release.</li>
+<li>Despite having extensive tests in place, as a FOSS project we have limited QA testing capabilities. When major changes took place we may opt to put out a pre-release to let the community help with testing.</li>
+<li>In principle the <code>main</code> branch should always be in a releasable state.</li>
+<li>The release process is automated and documented (see <a href="./ios/release.html">Release MapLibre iOS</a> and <a href="./android/release.html">Release MapLibre Android</a>). Anyone with write access should be able to push out a release.</li>
+<li>There is no fixed release cadence, but you are welcome to request a release on any of the communication channels.</li>
+<li>We do not have long-term support (LTS) releases.</li>
+<li>If you need a feature or a bugfix ported to and old version of MapLibre, you need to do the backporting yourself (see steps below).</li>
+</ul>
+<h2 id="backporting"><a class="header" href="#backporting">Backporting</a></h2>
+<p>We understand that MapLibre is used in large mission critical applications where updating to the latest version is not always immediately possible. We do not have the capacity to offer LTS releases, but we do want to facilitate backporting.</p>
+<ol>
+<li>Create an issue and request that a branch is created from the release you want to target. Also mention the feature or bugfix you want to backport.</li>
+<li>Once the branch is created, make a PR that includes the feature or bugfix and that targets this branch. Also update the relevant changelog.</li>
+<li>When the PR is approved and merged, a release is attempted. If the release workflow significantly changed and the release fails, you may need to help to backport changes to the release workflow as well.</li>
+</ol>
+<p>The branch names for older versions follow a pattern as follows: <code>platform-x.x.x</code> (e.g. <a href="https://github.com/maplibre/maplibre-native/tree/android-10.x.x"><code>android-10.x.x</code></a> for the MapLibre Native Android 10.x.x release series). These branches have some minimal branch protection (a pull request is required to push changes to them).</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="platforms/windows/build-msys2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
-                            <a rel="next prefetch" href="platforms/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="render-tests.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -301,8 +324,11 @@ Mapbox Style Spec. Since it is derived from Mapbox's original work it also uses 
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="platforms/windows/build-msys2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
-                    <a rel="next prefetch" href="platforms/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="render-tests.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
